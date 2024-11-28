@@ -104,7 +104,7 @@ export async function renderLoginPage (request, env) {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span>  🚀</h1>
+            <h1>Hafez Panel <span style="font-size: smaller;">${panelVersion}</span>  🚀</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
