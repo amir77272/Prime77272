@@ -138,7 +138,7 @@ export async function renderLoginPage (request, env) {
                     console.error('Login failed:', errorMessage);
                     return;
                 }
-                window.location.href = '/panel';
+                window.location.href = '/dash';
             } catch (error) {
                 console.error('Error during login:', error);
             }

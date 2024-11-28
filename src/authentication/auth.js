@@ -86,7 +86,7 @@ export async function login(request, env) {
     await initializeParams(request, env);
     if (typeof env.hafez !== 'object') return await renderErrorPage(request, env, 'KV Dataset is not properly set!', null, true);
     const auth = await Authenticate(request, env);
-    if (auth) return Response.redirect(`${origin}/panel`, 302);
+    if (auth) return Response.redirect(`${origin}/dash`, 302);
     if (request.method === 'POST') return await generateJWTToken(request, env);
     return await renderLoginPage(request, env);
 }

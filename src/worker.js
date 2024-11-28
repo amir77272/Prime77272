@@ -37,7 +37,7 @@ export default {
                         if (client === 'singbox' || client === 'hiddify') return await getSingBoxWarpConfig(request, env, client);
                         return await getXrayWarpConfigs(request, env, client);
 
-                    case '/panel':
+                    case '/dash':
                         return await handlePanel(request, env);
                                                       
                     case '/login':
@@ -46,7 +46,7 @@ export default {
                     case '/logout':                        
                         return logout();        
 
-                    case '/panel/password':
+                    case '/dash/password':
                         return await resetPassword(request, env);
                     
                     case '/my-ip':

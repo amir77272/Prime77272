@@ -983,7 +983,7 @@ export async function renderHomePage (request, env, proxySettings, isPassSet) {
                     const refreshButtonVal = refreshBtn.innerHTML;
                     refreshBtn.innerHTML = '⌛ Loading...';
 
-                    const response = await fetch('/panel', {
+                    const response = await fetch('/dash', {
                         method: 'POST',
                         body: formData,
                         credentials: 'include'
@@ -1260,7 +1260,7 @@ export async function renderHomePage (request, env, proxySettings, isPassSet) {
                 const applyButtonVal = applyButton.value;
                 applyButton.value = '⌛ Loading...';
 
-                const response = await fetch('/panel', {
+                const response = await fetch('/dash', {
                     method: 'POST',
                     body: formData,
                     credentials: 'include'
@@ -1326,7 +1326,7 @@ export async function renderHomePage (request, env, proxySettings, isPassSet) {
             }
                     
             try {
-                const response = await fetch('/panel/password', {
+                const response = await fetch('/dash/password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'text/plain'
