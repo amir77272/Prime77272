@@ -53,7 +53,7 @@ export async function handlePanel(request, env) {
         
     const { kvNotFound, proxySettings } = await getDataset(request, env);
     if (kvNotFound) return await renderErrorPage(request, env, 'KV Dataset is not properly set!', null, true);
-    const pwd = await env.bpb.get('pwd');
+    const pwd = await env.hafez.get('pwd');
     if (pwd && !auth) return Response.redirect(`${origin}/login`, 302);
     const isPassSet = pwd?.length >= 8;
     return await renderHomePage(request, env, proxySettings, isPassSet);

@@ -7,13 +7,13 @@ import { renderErrorPage } from '../pages/error';
 export async function getDataset(request, env) {
     await initializeParams(request, env);
     let proxySettings, warpConfigs;
-    if (typeof env.bpb !== 'object') {
+    if (typeof env.hafez !== 'object') {
         return {kvNotFound: true, proxySettings: null, warpConfigs: null}
     }
 
     try {
-        proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
-        warpConfigs = await env.bpb.get('warpConfigs', {type: 'json'});
+        proxySettings = await env.hafez.get("proxySettings", {type: 'json'});
+        warpConfigs = await env.hafez.get('warpConfigs', {type: 'json'});
     } catch (error) {
         console.log(error);
         throw new Error(`An error occurred while getting KV - ${error}`);
@@ -37,13 +37,13 @@ export async function updateDataset (request, env) {
     let currentSettings;
     if (!isReset) {
         try {
-            currentSettings = await env.bpb.get("proxySettings", {type: 'json'});
+            currentSettings = await env.hafez.get("proxySettings", {type: 'json'});
         } catch (error) {
             console.log(error);
             throw new Error(`An error occurred while getting current KV settings - ${error}`);
         }
     } else {
-        await env.bpb.delete('warpConfigs');
+        await env.hafez.delete('warpConfigs');
         newSettings = null;
     }
 
@@ -122,7 +122,7 @@ export async function updateDataset (request, env) {
     };
 
     try {    
-        await env.bpb.put("proxySettings", JSON.stringify(proxySettings));          
+        await env.hafez.put("proxySettings", JSON.stringify(proxySettings));          
     } catch (error) {
         console.log(error);
         throw new Error(`An error occurred while updating KV - ${error}`);
