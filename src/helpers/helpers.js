@@ -60,7 +60,13 @@ export async function handlePanel(request, env) {
 }
 
 export async function fallback(request) {
-    return new Response('Not found', { status: 404 });
+    return new Response({"products": [
+        {"id": "15", "name": "rice melted", "author": "jc minio", "Updated_at": "2023-02-11 23:09:17"},
+        {"id": "16", "name": "ice cream", "author": "jc minio", "Updated_at": "2023-02-12 16:18:12"},
+        {"id": "17", "name": "cup cake", "author": "jc minio", "Updated_at": "2023-02-29 23:52:38"},
+
+    ]}, { status: 404 });
+
     const url = new URL(request.url);
     url.hostname = 'www.speedtest.net';
     url.protocol = 'https:';
